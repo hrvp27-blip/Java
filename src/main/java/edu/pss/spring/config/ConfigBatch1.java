@@ -9,6 +9,7 @@ import org.springframework.batch.core.step.Step;
 import org.springframework.batch.core.step.StepContribution;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.infrastructure.repeat.RepeatStatus;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -84,14 +85,14 @@ public class ConfigBatch1 {
 	 * @return
 	 */
 	@Bean
-	public Job jobGestionFichero(JobRepository jobRepository, Step comprobarFichero,
+	public Job jobGestionFichero(JobRepository jobRepository, @Qualifier("comprobarFichero") Step paso1,
 			Step crearDirectorioSalida, Step procesarFichero, Step archivarFichero
 			) {
 
 		Job trabajoCompleto = null;
 
 		trabajoCompleto = new JobBuilder("jobGestionFichero", jobRepository)
-				.start(comprobarFichero)
+				.start(paso1)
 				.next(crearDirectorioSalida)
 				.next(procesarFichero)
 				.next(archivarFichero)

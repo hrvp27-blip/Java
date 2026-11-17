@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "batch.ruta.entrada",
+      "type": "java.lang.String",
+      "description": "Carpeta donde se deja el fichero de entrada del job."
+    },
+    {
+      "name": "batch.ruta.procesados",
+      "type": "java.lang.String",
+      "description": "Carpeta donde se escriben los registros procesados correctamente."
+    },
+    {
+      "name": "batch.ruta.errores",
+      "type": "java.lang.String",
+      "description": "Carpeta donde se escriben los registros con errores."
+    },
+    {
+      "name": "batch.fichero",
+      "type": "java.lang.String",
+      "description": "Nombre del fichero CSV de entrada."
+    }
+  ]
+}
